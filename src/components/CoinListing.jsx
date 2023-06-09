@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Avatar from "@mui/material/Avatar";
 import {useNavigate } from "react-router-dom";
 import CardSkeleton from "./CardSkeleton";
+import { Button } from "react-bootstrap";
 function Coins() {
   const inputRef = useRef();
   console.log("REF", inputRef);
@@ -67,6 +68,7 @@ function Coins() {
                     image={coin.image}
                     alt="coin image"
                   />
+                  <Button className="btn cmnBtn">View Detials</Button>
                 </Card>
               ))
             : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(

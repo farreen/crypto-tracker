@@ -46,6 +46,8 @@
      display: flex;
      flex-direction: column;
      align-items: center;
+     font-size: 15px;
+     font-weight: bold;
  }
  
  .detailsHeroCard {
@@ -56,5 +58,27 @@
      position: absolute;
      margin-top: 5px;
      margin-left: 5px;
-     box-shadow: #282c34;
+     box-shadow: #183323;
+ }
+ 
+ .btn {
+     width: 60px;
+     height: 15px;
+     font-weight: 500;
+     background-color: #355fd3;
+     fill: #fff;
+     color: #fff;
+     /* font-size: 1.2rem; */
+     border-radius: .8rem;
+     line-height: 1.35;
+     outline: none;
+     text-decoration: none;
+     font-size: 8px;
+     margin-left: 49px;
+     cursor: pointer;
+ }
+ 
+ .cmnBtn {
+     display: inline-block;
+     /* padding: 1.2rem 2.2rem; */
  }
