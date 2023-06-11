@@ -61,7 +61,7 @@
      box-shadow: #183323;
  }
  
- .btn {
+ .cmnBtn {
      width: 60px;
      height: 15px;
      font-weight: 500;
@@ -73,12 +73,14 @@
      line-height: 1.35;
      outline: none;
      text-decoration: none;
-     font-size: 8px;
+     font-size: 7px;
      margin-left: 49px;
      cursor: pointer;
+     border: none;
+     display: inline-block;
  }
  
- .cmnBtn {
-     display: inline-block;
-     /* padding: 1.2rem 2.2rem; */
+ .cmnBtn:hover {
+     background-color: #00ad87;
+     transition: 0.7s;
  }
