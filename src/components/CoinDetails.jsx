@@ -28,7 +28,7 @@ const CoinDetails = () => {
   // }))
   // const classes = useStyles();
   return (
-    <div className="coinDetails">
+    <div style={{colr: "black"}}>
       {/* <Header/> */}
       details
     </div>

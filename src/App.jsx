@@ -21,7 +21,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<CoinListing />} />
-          <Route path='/details/:id' element={<CoinDetails />} />
+          <Route path='/coinDetails/:id' element={<CoinDetails />} />
         </Routes>
       </div>
     </Router>
