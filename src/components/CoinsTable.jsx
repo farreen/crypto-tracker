@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { LinearProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography, colors } from '@mui/material'
+import { LinearProgress, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography, colors } from '@mui/material'
 import axios from 'axios';
 import { CryptoState } from '../CryptoContext';
 import { CoinList } from '../config/api';
@@ -12,6 +12,7 @@ const CoinsTable = () => {
     const [coins, setCoins] = useState([]);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("")
+    const [page, setPage] = useState(1);
     const { currency, symbol } = CryptoState();
     const navigate = useNavigate();
 
@@ -69,11 +70,11 @@ const CoinsTable = () => {
                             </TableHead>
                             <TableBody>
                                 {
-                                    handleSearch().map((coin) => {
+                                    handleSearch().slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin) => {
                                         const profit = coin.price_change_percentage_24h > 0;
                                         return (
                                             <TableRow onClick={() => {
-                                                navigate(`/coin/${coin.id}`)
+                                                navigate(`/coinDetails/${coin.id}`)
                                                 // style={{}}
                                                 // key={coin.name}
                                             }}>
@@ -94,6 +95,7 @@ const CoinsTable = () => {
                                                     <div style={{
                                                         display: "flex",
                                                         flexDirection: "column",
+                                                        cursor: "pointer"
                                                     }}>
                                                         <span style={{
                                                             textTransform: "uppercase",
@@ -135,6 +137,20 @@ const CoinsTable = () => {
                         </Table>
                     )}
                 </TableContainer>
+                <Pagination
+                    style={{
+                        padding: "20",
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                    }}
+                    count={(handleSearch().length / 10).toFixed(0)}
+                    onChange={(_, value) => {
+                        setPage(value);
+                        window.scroll(0, 150);
+                    }}
+                />
+
             </Container>
         </div>
     )
