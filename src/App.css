@@ -12,7 +12,9 @@ a{
 
 .App {
     color: white;
-    background-color: #14161a;
+    /* background-color: #14161a; */
+    background-color: grey;
+
     /* background-color: darkgray; */
 
     min-height: 100vh;
