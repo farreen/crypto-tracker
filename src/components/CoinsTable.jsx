@@ -6,6 +6,7 @@ import { CoinList } from '../config/api';
 import { Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { numberWithCommas } from './Banner/Carousel';
+import '../App.css'
 
 
 const CoinsTable = () => {
@@ -44,8 +45,8 @@ const CoinsTable = () => {
                 </Typography>
 
                 <TextField
+                    className='textArea'
                     label="Search for a crypto currency..." variant='outlined'
-                    style={{ width: "100%", marginBottom: "20" }}
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 <br/>
@@ -77,19 +78,13 @@ const CoinsTable = () => {
                                             <TableRow onClick={() => {
                                                 navigate(`/coinDetails/${coin.id}`)
                                             }}
-                                                style={{
-                                                    cursor: "pointer",
-                                                    fontFamily: "Montserrat",
-                                                }}
+                                                className='tableRow'
                                                 key={coin.name}
                                             >
                                                 <TableCell
                                                     component="th"
                                                     scope='row'
-                                                    styles={{
-                                                        display: "flex",
-                                                        gap: "15",
-                                                    }}
+                                                    className='tableCell'
                                                 >
                                                     <img
                                                         src={coin.image}
@@ -97,10 +92,13 @@ const CoinsTable = () => {
                                                         height="50"
                                                         style={{ marginBottom: "10" }}
                                                     />
-                                                    <div style={{
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                    }}>
+                                                    <div
+                                                    //  style={{
+                                                    //     display: "flex",
+                                                    //     flexDirection: "column",
+                                                    // }}
+                                                    className='coinInfo'
+                                                    >
                                                         <span style={{
                                                             textTransform: "uppercase",
                                                             fontSize: "22"
@@ -123,6 +121,7 @@ const CoinsTable = () => {
                                                     style={{
                                                         color: profit > 0 ? "rgb(14, 203, 129)" : "red"
                                                     }}
+
                                                 >
                                                     {profit && "+"}{coin.price_change_percentage_24h.toFixed(2)}%
                                                 </TableCell>
@@ -142,12 +141,13 @@ const CoinsTable = () => {
                     )}
                 </TableContainer>
                 <Pagination
-                    style={{
-                        padding: "20",
-                        width: "100%",
-                        display: "flex",
-                        justifyContent: "center",
-                    }}
+                    // style={{
+                    //     padding: "20",
+                    //     width: "100%",
+                    //     display: "flex",
+                    //     justifyContent: "center",
+                    // }}
+                    className='pagination'
                     count={(handleSearch().length / 10).toFixed(0)}
                     onChange={(value) => {
                         setPage(value);

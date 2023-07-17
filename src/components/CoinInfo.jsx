@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Doughnut, Line } from 'react-chartjs-2';
 import { CircularProgress } from '@mui/material';
 import Chart from 'chart.js/auto';
+import "../App.css";
 
 const CoinInfo = ({ coin }) => {
   const [historicalChartData, setHistoricalChartData] = useState([]);
@@ -20,7 +21,7 @@ const CoinInfo = ({ coin }) => {
   }, [coin.id]);
 
   return (
-    <div style={Styles.container}>
+    <div className='graphContainer'>
       <div>
         {
           !historicalChartData ? (
@@ -62,11 +63,3 @@ const CoinInfo = ({ coin }) => {
 }
 
 export default CoinInfo
-
-
-const Styles = {
-  container: {
-    width: "70%",
-    margin: "40px"
-  }
-}

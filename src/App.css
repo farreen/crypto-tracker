@@ -5,7 +5,7 @@
     scroll-behavior: smooth;
 }
 
-a{
+a {
     text-decoration: none;
     color: gold;
 }
@@ -14,11 +14,136 @@ a{
     color: white;
     /* background-color: #14161a; */
     background-color: rgb(100, 162, 190);
-
-    /* background-color: darkgray; */
-
     min-height: 100vh;
 }
+
+.textArea {
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.tableRow {
+    cursor: pointer;
+    font-family: Montserrat;
+}
+
+.tableCell {
+
+    display: flex;
+    gap: 15px;
+
+}
+
+.coinInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* css for details page */
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    border-right: 2px solid grey;
+}
+
+.heading {
+    font-weight: bold;
+    font-family: Montserrat;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.description {
+    width: 100%;
+    padding: 25px
+}
+
+/* css for coin info */
+
+.graphContainer {
+    width: 70%;
+    margin: 40px;
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .heading {
+        font-weight: bold;
+        font-family: Montserrat;
+    }
+
+    .description {
+        width: 100%;
+        padding: 25px
+    }
+
+    /* media query for coin info*/
+
+    .graphContainer {
+        width: 100%;
+    }
+}
+
+@media(min-width: 481px) and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+
+    }
+
+    .graphContainer {
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
 
 /* .header {
     display: flex;
