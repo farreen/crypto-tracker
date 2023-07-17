@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Doughnut, Line } from 'react-chartjs-2';
 import { CircularProgress } from '@mui/material';
 import Chart from 'chart.js/auto';
-import "../App.css";
+import "../styles/App.css";
 
 const CoinInfo = ({ coin }) => {
   const [historicalChartData, setHistoricalChartData] = useState([]);

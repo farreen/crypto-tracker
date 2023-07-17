@@ -6,7 +6,7 @@ import { CoinList } from '../config/api';
 import { Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { numberWithCommas } from './Banner/Carousel';
-import '../App.css'
+import '../styles/App.css'
 
 
 const CoinsTable = () => {

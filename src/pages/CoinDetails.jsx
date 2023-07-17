@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import CoinInfo from "../components/CoinInfo";
 import parse from 'html-react-parser';
 import { numberWithCommas } from '../components/Banner/Carousel'
-import "../App.css"
+import "../styles/App.css"
 
 
 const CoinDetails = () => {

@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CryptoContext from './CryptoContext';
-// import { CryptoContext } from './CryptoContext';
+import { BrowserRouter } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CryptoContext>
+      <BrowserRouter>
       <App />
+      </BrowserRouter>
     </CryptoContext>
   </React.StrictMode>
 );
