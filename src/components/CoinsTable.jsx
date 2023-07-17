@@ -48,6 +48,7 @@ const CoinsTable = () => {
                     style={{ width: "100%", marginBottom: "20" }}
                     onChange={(e) => setSearch(e.target.value)}
                 />
+                <br/>
                 <TableContainer>
 
                     {loading ? (
@@ -75,9 +76,13 @@ const CoinsTable = () => {
                                         return (
                                             <TableRow onClick={() => {
                                                 navigate(`/coinDetails/${coin.id}`)
-                                                // style={{}}
-                                                // key={coin.name}
-                                            }}>
+                                            }}
+                                                style={{
+                                                    cursor: "pointer",
+                                                    fontFamily: "Montserrat",
+                                                }}
+                                                key={coin.name}
+                                            >
                                                 <TableCell
                                                     component="th"
                                                     scope='row'
@@ -95,7 +100,6 @@ const CoinsTable = () => {
                                                     <div style={{
                                                         display: "flex",
                                                         flexDirection: "column",
-                                                        cursor: "pointer"
                                                     }}>
                                                         <span style={{
                                                             textTransform: "uppercase",
@@ -145,7 +149,7 @@ const CoinsTable = () => {
                         justifyContent: "center",
                     }}
                     count={(handleSearch().length / 10).toFixed(0)}
-                    onChange={(_, value) => {
+                    onChange={(value) => {
                         setPage(value);
                         window.scroll(0, 150);
                     }}
