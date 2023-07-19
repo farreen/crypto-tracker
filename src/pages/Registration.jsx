@@ -35,7 +35,7 @@ const Registration = () => {
                 <h1 className='registration'>Registration</h1>
                 <form onSubmit={submitForm}>
                     <div className='username'>
-                       <span>{nameError}</span>
+                       <span className='errorHandlers'>{nameError}</span>
                         <label htmlFor="username">User Name</label>
                         <input
                             type='text'

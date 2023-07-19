@@ -63,7 +63,7 @@ p{
     
 }
 
-span{
+.errorHandlers{
     color: red;
     font-size: small;
 

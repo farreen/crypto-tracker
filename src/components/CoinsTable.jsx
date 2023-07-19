@@ -93,10 +93,6 @@ const CoinsTable = () => {
                                                         style={{ marginBottom: "10" }}
                                                     />
                                                     <div
-                                                    //  style={{
-                                                    //     display: "flex",
-                                                    //     flexDirection: "column",
-                                                    // }}
                                                     className='coinInfo'
                                                     >
                                                         <span style={{
@@ -141,12 +137,6 @@ const CoinsTable = () => {
                     )}
                 </TableContainer>
                 <Pagination
-                    // style={{
-                    //     padding: "20",
-                    //     width: "100%",
-                    //     display: "flex",
-                    //     justifyContent: "center",
-                    // }}
                     className='pagination'
                     count={(handleSearch().length / 10).toFixed(0)}
                     onChange={(value) => {

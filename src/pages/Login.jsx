@@ -4,17 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
-    // const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [nameError, setNameError] = useState("")
     const [emailError, setEmailError] = useState("")
     const [passwordError, setPasswordError] = useState("")
 
     const submitForm = (e) => {
         e.preventDefault();
         const obj = {
-            // username,
             email,
             password
         }
@@ -32,20 +29,8 @@ const Login = () => {
             <div className='center'>
                 <h1 className='registration'>Login</h1>
                 <form onSubmit={submitForm}>
-                    {/* <div className='username'>
-                       <span>{nameError}</span>
-                        <label htmlFor="username">User Name</label>
-                        <input
-                            type='text'
-                            id='username'
-                            value={username}
-                            placeholder='Enter your name'
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                    </div> */}
-
                     <div className='email'>
-                    <span>{emailError}</span>
+                        <span className='errorHandlers'>{emailError}</span>
                         <label htmlFor="email">Email</label>
                         <input
                             type='email'
@@ -57,7 +42,7 @@ const Login = () => {
                     </div>
 
                     <div className='password'>
-                    <span>{passwordError}</span>
+                        <span>{passwordError}</span>
                         <label htmlFor="password">Password</label>
                         <input
                             type='password'
