@@ -32,7 +32,7 @@ const Registration = () => {
     return (
         <div className='container'>
             <div className='center'>
-                <h1 className='registration'>Registration</h1>
+                <h1 className='registration'>Sign Up</h1>
                 <form onSubmit={submitForm}>
                     <div className='username'>
                        <span className='errorHandlers'>{nameError}</span>

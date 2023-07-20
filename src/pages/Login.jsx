@@ -22,6 +22,7 @@ const Login = () => {
             setPasswordError("Please Enter Password");
         } else {
             localStorage.setItem("user_credentials", JSON.stringify(obj))
+            navigate(`/`)
         }
     }
     return (
@@ -42,7 +43,7 @@ const Login = () => {
                     </div>
 
                     <div className='password'>
-                        <span>{passwordError}</span>
+                        <span className='errorHandlers'>{passwordError}</span>
                         <label htmlFor="password">Password</label>
                         <input
                             type='password'
