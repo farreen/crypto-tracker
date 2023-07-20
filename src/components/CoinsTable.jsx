@@ -7,6 +7,7 @@ import { Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { numberWithCommas } from './Banner/Carousel';
 import '../styles/App.css'
+import { toast } from 'react-toastify';
 
 
 const CoinsTable = () => {
@@ -16,6 +17,7 @@ const CoinsTable = () => {
     const [page, setPage] = useState(1);
     const { currency, symbol } = CryptoState();
     const navigate = useNavigate();
+    const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem("user_credentials") || false)
 
     const getcoinList = async () => {
         setLoading(true);
@@ -34,6 +36,7 @@ const CoinsTable = () => {
             coin.name.toLowerCase().includes(search) || coin.symbol.toLowerCase().includes(search)
         ))
     }
+
     return (
         <div>
             <Container style={{ textAlign: "center" }}>
@@ -49,14 +52,13 @@ const CoinsTable = () => {
                     label="Search for a crypto currency..." variant='outlined'
                     onChange={(e) => setSearch(e.target.value)}
                 />
-                <br/>
                 <TableContainer>
 
                     {loading ? (
                         <LinearProgress style={{ backgroundColor: "gold" }} />
                     ) : (
-                        <Table>
-                            <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+                        <Table style={{marginTop: "10px"}}>
+                            <TableHead style={{ backgroundColor: "#EEBC1D"}}>
                                 <TableRow>
                                     {
                                         ["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
@@ -76,7 +78,11 @@ const CoinsTable = () => {
                                         const profit = coin.price_change_percentage_24h > 0;
                                         return (
                                             <TableRow onClick={() => {
-                                                navigate(`/coinDetails/${coin.id}`)
+                                                isLoggedIn ? (
+                                                    navigate(`/coinDetails/${coin.id}`)
+                                                ) : (
+                                                    toast.warning("Please create account to check details",{position:"bottom-center"})
+                                                )
                                             }}
                                                 className='tableRow'
                                                 key={coin.name}
@@ -93,7 +99,7 @@ const CoinsTable = () => {
                                                         style={{ marginBottom: "10" }}
                                                     />
                                                     <div
-                                                    className='coinInfo'
+                                                        className='coinInfo'
                                                     >
                                                         <span style={{
                                                             textTransform: "uppercase",

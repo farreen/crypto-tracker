@@ -7,12 +7,16 @@ import Header from './components/Header'
 import "./styles/App.css"
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   const { pathname } = useLocation()
   return (
 
     <div className='App'>
       {pathname !== '/login' && pathname !== '/registration' && <Header />}
+      <ToastContainer/>
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/registration' element={<Registration />} />

@@ -4,8 +4,8 @@ import { TrendingCoins } from '../../config/api'
 import { CryptoState } from '../../CryptoContext'
 import 'react-alice-carousel/lib/alice-carousel.css';
 import AliceCarousel from 'react-alice-carousel';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -14,7 +14,9 @@ export function numberWithCommas(x) {
 const Carousel = () => {
   const { currency, symbol } = CryptoState();
   const [trendingCoins, setTrendingCoins] = useState([]);
-
+  const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem("user_credentials") || false)
+  const navigate = useNavigate();
+  
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
     console.log("ress", data);
@@ -29,7 +31,7 @@ const Carousel = () => {
   const items = trendingCoins.map((coin) => {
     let profit = coin.price_change_percentage_24h >= 0
     return (
-      <Link style={{
+      <span style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -37,7 +39,13 @@ const Carousel = () => {
         textTransform: "uppercase",
         color: "white",
       }}
-        to={`/coinDetails/${coin.id}`}
+        onClick={() => {
+          isLoggedIn ?
+            (navigate(`/coinDetails/${coin.id}`)
+            ) : (
+              toast.warning("Plese create account to check details")
+            )
+        }}
       >
         <img
           src={coin?.image}
@@ -60,7 +68,7 @@ const Carousel = () => {
         <span style={{ fontSize: "22", fontWeight: "500" }}>
           {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
-      </Link>
+      </span>
     )
   })
   const resposive = {
@@ -92,19 +100,3 @@ const Carousel = () => {
 }
 
 export default Carousel
-
-// const styles = {
-//   carousel: {
-//     height: "50%",
-//     display: "flex",
-//     alignItems: "center",
-//   },
-//   carouselItems: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     cursor: "pointer",
-//     textTransform: "uppercase",
-//     color: "white",
-//   }
-// }
